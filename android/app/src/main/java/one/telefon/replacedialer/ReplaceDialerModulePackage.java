@@ -1,4 +1,4 @@
-package one.telefon.tele;
+package one.telefon.replacedialer;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
