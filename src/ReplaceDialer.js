@@ -2,7 +2,7 @@ import React, {NativeModules} from 'react-native';
 
 export default class ReplaceDialer {
   constructor() {
-    super();
+    //super();
   }
 
   isDefault() {
