@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.dialer"
+        applicationId "one.telefon.replacedialer.example"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

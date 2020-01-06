@@ -1,7 +1,7 @@
 {
-  "name": "recat-native-tele-example",
+  "name": "recat-native-replace-dialer-example",
   "main": "index.js",
-  "description": "Example of react-native-tele for React Native",
+  "description": "Example of react-native-replace-dialer for React Native",
   "version": "0.0.1",
   "author": {
     "name": "Anton Dodonov",
@@ -18,7 +18,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "react-native-tele": "file:../"
+    "react-native-replace-dialer": "git+https://github.com/telefon-one/react-native-replace-dialer.git"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

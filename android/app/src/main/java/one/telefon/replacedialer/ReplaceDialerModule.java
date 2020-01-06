@@ -5,13 +5,19 @@ import android.content.Intent;
 
 import com.facebook.react.bridge.*;
 
-
+import android.telecom.TelecomManager;
 
 
 public class ReplaceDialerModule extends ReactContextBaseJavaModule {
 
     private static String LOG = "telefon.one.replacedialer.ReplaceDialerModule";
 
+    // for default dialer
+    private TelecomManager telecomManager;
+    private static final int RC_DEFAULT_PHONE = 3289;
+    private static final int RC_PERMISSION = 3810;
+
+    private static final int REQUEST_CODE_SET_DEFAULT_DIALER = 123;
 
     public ReplaceDialerModule(ReactApplicationContext context) {
         super(context);
