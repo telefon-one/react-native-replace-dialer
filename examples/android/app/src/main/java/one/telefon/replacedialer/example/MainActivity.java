@@ -1,4 +1,4 @@
-package one.telefon.replacereplacedialerexample.example;
+package one.telefon.replacedialer.example;
 
 import com.facebook.react.ReactActivity;
 
