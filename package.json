@@ -2,7 +2,7 @@
   "name": "react-native-replace-dialer",
   "main": "index.js",
   "description": "Replace Android dialer and check status",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/telefon-one/react-native-replace-dialer.git"
