@@ -3,4 +3,5 @@ git pull
 git commit -a -m "auto"
 git push
 #npm version patch
-npm publish
+#npm publish
+#./npm_publish.sh
