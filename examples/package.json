@@ -18,7 +18,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "react-native-replace-dialer": "git+https://github.com/telefon-one/react-native-replace-dialer.git"
+    "react-native-replace-dialer": "https://github.com/telefon-one/react-native-replace-dialer/"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
