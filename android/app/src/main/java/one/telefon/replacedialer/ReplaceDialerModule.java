@@ -7,7 +7,6 @@ import com.facebook.react.bridge.*;
 
 import android.telecom.TelecomManager;
 
-
 public class ReplaceDialerModule extends ReactContextBaseJavaModule {
 
     private static String LOG = "telefon.one.replacedialer.ReplaceDialerModule";
