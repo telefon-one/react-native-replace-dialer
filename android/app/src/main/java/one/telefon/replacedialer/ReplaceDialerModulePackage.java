@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TeleModulePackage implements ReactPackage {
+public class ReplaceDialerModulePackage implements ReactPackage {
 
-    public TeleModulePackage() {
+    public ReplaceDialerModulePackage() {
 
     }
 
@@ -22,17 +22,12 @@ public class TeleModulePackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new TeleModule(reactContext));
+        modules.add(new ReplaceDialerModule(reactContext));
         return modules;
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
-        /*
-        return Arrays.<ViewManager>asList(
-            new PjSipRemoteVideoViewManager(),
-            new PjSipPreviewVideoViewManager()
-        );*/
     }
 }
