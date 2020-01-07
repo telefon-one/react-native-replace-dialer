@@ -57,7 +57,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setDefault() {
-        Log.w(LOG, "setDefault");
+        Log.w(LOG, "setDefault "+this.mContext.getPackageName());
           Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
           intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.mContext.getPackageName());
           this.mContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
