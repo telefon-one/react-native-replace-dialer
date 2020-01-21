@@ -51,7 +51,6 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements
     @ReactMethod
     public void isDefaultDialer(Callback myCallback) {
         Log.w(LOG, "isDefaultDialer()");
-        
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
         {
@@ -60,53 +59,16 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements
         }
 
         TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
-    
-        String name1=this.mContext.getPackageName();
-        String name2=telecomManager.getDefaultDialerPackage();
 
-        if (name1==name2) 
-        {
-            Log.w(LOG, "==name12");
-            
-
-        }
-
-
-        Log.w(LOG, this.mContext.getPackageName()+"xx11");
-        Log.w(LOG, telecomManager.getDefaultDialerPackage()+"xx22");
-
-        if ((telecomManager.getDefaultDialerPackage()+"xxx") != (this.mContext.getPackageName()+"xxx")) 
-        {
-            Log.w(LOG, "!=");
-            
-
-        }
-
-        if ((telecomManager.getDefaultDialerPackage()+"xxx") == (this.mContext.getPackageName()+"xxx")) 
-        {
-            Log.w(LOG, "==");
-            
-
-        }
-
-        if (telecomManager.getDefaultDialerPackage() == this.mContext.getPackageName()) 
-        {
-            Log.w(LOG, "==2");
-            
-
-        }
-
-
-        if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
-        {
-            Log.w(LOG, "invoke(false)");
-            myCallback.invoke(false);
-
-        }
-        else
+        if (telecomManager.getDefaultDialerPackage().equals(this.mContext.getPackageName())) 
         {
             Log.w(LOG, "invoke(true)");
             myCallback.invoke(true);
+        }
+        else
+        {
+            Log.w(LOG, "invoke(false)");
+            myCallback.invoke(false);
         }
     }
     
