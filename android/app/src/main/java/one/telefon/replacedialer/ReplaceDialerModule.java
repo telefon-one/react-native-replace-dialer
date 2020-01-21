@@ -63,6 +63,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
             myCallback.invoke(true);
     }
     
+    /*
     @Override
     private void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==REQUEST_CODE_SET_DEFAULT_DIALER) 
@@ -76,6 +77,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
         //checkSetDefaultDialerResult(resultCode)
         }
     }
+    */
 
     @ReactMethod
     public void setDefault(Callback myCallback) {
@@ -86,6 +88,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
         intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.mContext.getPackageName());
         this.mContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
           
+        myCallback.invoke(true);
         // startActivityForResult(intent, REQUEST_CODE_SET_DEFAULT_DIALER); //Different
           // code
           // Huawei/ honor : ??? manual ??? startActivityForResult(new
