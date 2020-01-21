@@ -5,7 +5,7 @@ export default class ReplaceDialer {
     //super();
   }
 
-  checkModule() {
+  checkNativeModule() {
     // Produce an error if we don't have the native module
     if (NativeModules.ReplaceDialerModule == null) {
       throw new Error(`react-native-replace-dialer: NativeModule.ReplaceDialerModule is null. To fix this issue try these steps:
@@ -17,8 +17,8 @@ export default class ReplaceDialer {
     }
   }
 
-  isDefault() {
-    checkModule();
+  isDefaultDialer() {
+    this.checkNativeModule();
     return NativeModules.ReplaceDialerModule.isDefault((data) => {
       console.log(data);
       //if (successful) {
@@ -26,8 +26,8 @@ export default class ReplaceDialer {
     });
   }
 
-  setDefault() {
-    checkModule();
+  setDefaultDialer() {
+    this.checkNativeModule();
     //return NativeModules.ReplaceDialerModule.setDefault();
     return NativeModules.ReplaceDialerModule.setDefault((data) => {
       console.log(data);

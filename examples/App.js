@@ -26,7 +26,7 @@ export default class App extends Component {
   async componentDidMount() {
     let tReplaceDialer = new ReplaceDialer();
 
-    //let isDefault=await tReplaceDialer.isDefault();
+    let isDefault=await tReplaceDialer.isDefault();
 
     /*
     if(!isDefault)
