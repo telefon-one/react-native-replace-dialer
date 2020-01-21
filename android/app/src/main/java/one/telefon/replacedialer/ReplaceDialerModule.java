@@ -21,8 +21,8 @@ import com.facebook.react.uimanager.ViewManager;
 
 import android.telecom.TelecomManager;
 
-
-public class ReplaceDialerModule extends ReactContextBaseJavaModule implements ActivityEventListener {
+//TODO : https://stackoverflow.com/questions/53411220/pass-activity-result-into-a-react-native-module
+public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements ActivityEventListener*/ {
     ReactApplicationContext reactContext;
     
     private static Callback setCallback;
@@ -64,7 +64,8 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule implements A
             myCallback.invoke(true);
     }
     
-
+    /*
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==REQUEST_CODE_SET_DEFAULT_DIALER) 
         {
@@ -77,16 +78,12 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule implements A
         //checkSetDefaultDialerResult(resultCode)
         }
     }
-    
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-    }
-    
+        
     @Override
     public void onNewIntent(Intent intent) {
   
     }
+    */
 
     @ReactMethod
     public void setDefault(Callback myCallback) {
