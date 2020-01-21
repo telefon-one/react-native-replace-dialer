@@ -5024,8 +5024,8 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
 
 "react-native-replace-dialer@https://github.com/telefon-one/react-native-replace-dialer/":
-  version "0.0.9"
-  resolved "https://github.com/telefon-one/react-native-replace-dialer/#9e8dab37196d43d455b645d231c56cd7ea4eb1db"
+  version "0.0.11"
+  resolved "https://github.com/telefon-one/react-native-replace-dialer/#c8b0a13e33767cf1c678827e313aa3ba4eba94b2"
 
 react-native@0.61.5:
   version "0.61.5"

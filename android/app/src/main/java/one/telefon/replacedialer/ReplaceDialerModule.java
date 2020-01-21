@@ -49,7 +49,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void isDefault(Callback myCallback) {
         Log.w(LOG, "isDefault");
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M))
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
         {
             myCallback.invove(true);
             return;
