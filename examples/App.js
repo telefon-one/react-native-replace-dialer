@@ -26,9 +26,12 @@ export default class App extends Component {
   async componentDidMount() {
     let tReplaceDialer = new ReplaceDialer();
 
-    if (!tReplaceDialer.isDefault()) {
+    let isDefault=await tReplaceDialer.isDefault();
+
+    if(!isDefault)
       console.log('Is NOT default dialer, try to set.');
-      if (tReplaceDialer.setDefault()) {
+      let setDefault=await tReplaceDialer.setDefault();
+      if (setDefault) {
         console.log('Default dialer sucessfully set.');
       } else {
         console.log('Default dialer NOT set');

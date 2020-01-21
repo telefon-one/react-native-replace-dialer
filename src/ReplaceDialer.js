@@ -21,8 +21,8 @@ export default class ReplaceDialer {
     checkModule();
     return NativeModules.ReplaceDialerModule.isDefault();
     return new Promise(function (resolve, reject) {
-      NativeModules.ReplaceDialerModule.isDefault((successful, data) => {
-        console.log(successful, data);
+      NativeModules.ReplaceDialerModule.isDefault((data) => {
+        console.log( data);
         //if (successful) {
         // }
       }
@@ -34,8 +34,8 @@ export default class ReplaceDialer {
     checkModule();
     //return NativeModules.ReplaceDialerModule.setDefault();
     return new Promise(function (resolve, reject) {
-      NativeModules.ReplaceDialerModule.setDefault((successful, data) => {
-        console.log(successful, data);
+      NativeModules.ReplaceDialerModule.setDefault(( data) => {
+        console.log( data);
         //if (successful) {
         //}
       }
