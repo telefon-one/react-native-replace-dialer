@@ -24,8 +24,10 @@ import android.telecom.TelecomManager;
 
 public class ReplaceDialerModule extends ReactContextBaseJavaModule {
     ReactApplicationContext mContext;
+    
+    private static Callback setCallback;
 
-    private static String LOG = "telefon.one.replacedialer.ReplaceDialerModule";
+    private static String LOG = "one.telefon.replacedialer.ReplaceDialerModule";
 
     // for default dialer
     private TelecomManager telecomManager;
@@ -45,23 +47,46 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public boolean isDefault() {
+    public void isDefault(Callback myCallback) {
         Log.w(LOG, "isDefault");
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M))
+        {
+            myCallback.invove(true);
+            return;
+        }
+
         TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
     
         if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
-            return false;
+            myCallback.invove(false);
         else
-            return true;
+            myCallback.invove(true);
+    }
+    
+    @Override
+    private void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==REQUEST_CODE_SET_DEFAULT_DIALER) 
+        {
+            setCallback.invove(resultCode);
+        //checkSetDefaultDialerResult(resultCode)
+        }
+        if (requestCode==RC_DEFAULT_PHONE) 
+        {
+            setCallback.invove(resultCode);
+        //checkSetDefaultDialerResult(resultCode)
+        }
     }
 
     @ReactMethod
-    public void setDefault() {
+    public void setDefault(Callback myCallback) {
         Log.w(LOG, "setDefault "+this.mContext.getPackageName());
-          Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
-          intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.mContext.getPackageName());
-          this.mContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
-          // startActivityForResult(intent, REQUEST_CODE_SET_DEFAULT_DIALER); //Different
+        setCallback=myCallback;
+
+        Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
+        intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.mContext.getPackageName());
+        this.mContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
+          
+        // startActivityForResult(intent, REQUEST_CODE_SET_DEFAULT_DIALER); //Different
           // code
           // Huawei/ honor : ??? manual ??? startActivityForResult(new
           // Intent(android.provider.Settings.ACTION_SETTINGS), 0);
