@@ -64,7 +64,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule implements A
             myCallback.invoke(true);
     }
     
-    /*
+    
     @Override
     private void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==REQUEST_CODE_SET_DEFAULT_DIALER) 
@@ -78,7 +78,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule implements A
         //checkSetDefaultDialerResult(resultCode)
         }
     }
-    */
+    
 
     @ReactMethod
     public void setDefault(Callback myCallback) {
