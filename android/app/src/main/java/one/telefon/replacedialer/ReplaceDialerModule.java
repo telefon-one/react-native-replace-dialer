@@ -22,7 +22,7 @@ import com.facebook.react.uimanager.ViewManager;
 import android.telecom.TelecomManager;
 
 //TODO : https://stackoverflow.com/questions/53411220/pass-activity-result-into-a-react-native-module
-public class ReplaceDialerModule extends mContextBaseJavaModule /*implements ActivityEventListener*/ {
+public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements ActivityEventListener*/ {
     ReactApplicationContext mContext;
     
     private static Callback setCallback;
