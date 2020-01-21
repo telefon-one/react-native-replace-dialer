@@ -51,28 +51,28 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
         Log.w(LOG, "isDefault");
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
         {
-            myCallback.invove(true);
+            myCallback.invoke(true);
             return;
         }
 
         TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
     
         if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
-            myCallback.invove(false);
+            myCallback.invoke(false);
         else
-            myCallback.invove(true);
+            myCallback.invoke(true);
     }
     
     @Override
     private void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode==REQUEST_CODE_SET_DEFAULT_DIALER) 
         {
-            setCallback.invove(resultCode);
+            setCallback.invoke(resultCode);
         //checkSetDefaultDialerResult(resultCode)
         }
         if (requestCode==RC_DEFAULT_PHONE) 
         {
-            setCallback.invove(resultCode);
+            setCallback.invoke(resultCode);
         //checkSetDefaultDialerResult(resultCode)
         }
     }
