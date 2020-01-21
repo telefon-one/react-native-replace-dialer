@@ -79,6 +79,10 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule implements A
         }
     }
     
+    @Override
+    public void onNewIntent(Intent intent) {
+  
+    }
 
     @ReactMethod
     public void setDefault(Callback myCallback) {
