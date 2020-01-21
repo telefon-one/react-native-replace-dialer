@@ -5025,7 +5025,7 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
 
 "react-native-replace-dialer@https://github.com/telefon-one/react-native-replace-dialer/":
   version "0.0.11"
-  resolved "https://github.com/telefon-one/react-native-replace-dialer/#5c077d2d9d661de334eee3bb9b184764ac44e702"
+  resolved "https://github.com/telefon-one/react-native-replace-dialer/#6de0994c7582ae50f09df50de5aa2329cfcad9ee"
 
 react-native@0.61.5:
   version "0.61.5"
