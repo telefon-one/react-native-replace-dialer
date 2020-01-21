@@ -7,6 +7,7 @@ import {
   View,
   Text,
   StatusBar,
+  NativeModules
 } from 'react-native';
 
 import {
@@ -26,19 +27,30 @@ export default class App extends Component {
   async componentDidMount() {
     let tReplaceDialer = new ReplaceDialer();
 
-    let isDefault=await tReplaceDialer.isDefault();
+    console.log(1);
+    NativeModules.ReplaceDialerModule.isDefault((data) => {
+      console.log("data",data);
+    });
+    console.log(2);
 
-    /*
-    if(!isDefault)
+
+
+    let isDefaultDialer=await tReplaceDialer.isDefaultDialer();
+    
+    if(!isDefaultDialer)
+    {
       console.log('Is NOT default dialer, try to set.');
-      let setDefault=await tReplaceDialer.setDefault();
-      if (setDefault) {
+      let setDefaultDialer=await tReplaceDialer.setDefaultDialer();
+      if (setDefaultDialer) {
         console.log('Default dialer sucessfully set.');
       } else {
         console.log('Default dialer NOT set');
       }
+    } else {
+      console.log('Is ALREADY default dialer, try to set.');
     }
-    */
+    
+
   }
 
   render() {

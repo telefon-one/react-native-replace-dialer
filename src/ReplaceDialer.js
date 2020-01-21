@@ -19,7 +19,7 @@ export default class ReplaceDialer {
 
   isDefaultDialer() {
     this.checkNativeModule();
-    return NativeModules.ReplaceDialerModule.isDefault((data) => {
+    return NativeModules.ReplaceDialerModule.isDefaultDialer((data) => {
       console.log(data);
       //if (successful) {
       // }
@@ -29,7 +29,7 @@ export default class ReplaceDialer {
   setDefaultDialer() {
     this.checkNativeModule();
     //return NativeModules.ReplaceDialerModule.setDefault();
-    return NativeModules.ReplaceDialerModule.setDefault((data) => {
+    return NativeModules.ReplaceDialerModule.setDefaultDialer((data) => {
       console.log(data);
       //if (successful) {
       //}
