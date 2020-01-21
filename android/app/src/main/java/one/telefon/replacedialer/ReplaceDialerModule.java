@@ -61,9 +61,9 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements
 
         TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
     
-        Log.w(LOG, this.mContext.getPackageName());
-        Log.w(LOG, telecomManager.getDefaultDialerPackage());
-        
+        Log.w(LOG, this.mContext.getPackageName()+"xx11");
+        Log.w(LOG, telecomManager.getDefaultDialerPackage()+"xx22");
+
         if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
         {
             Log.w(LOG, "invoke(false)");
