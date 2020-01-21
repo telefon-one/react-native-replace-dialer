@@ -22,8 +22,8 @@ import com.facebook.react.uimanager.ViewManager;
 import android.telecom.TelecomManager;
 
 
-public class ReplaceDialerModule extends ReactContextBaseJavaModule {
-    ReactApplicationContext mContext;
+public class ReplaceDialerModule extends ReactContextBaseJavaModule implements ActivityEventListener {
+    ReactApplicationContext reactContext;
     
     private static Callback setCallback;
 
@@ -38,7 +38,8 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
 
     public ReplaceDialerModule(ReactApplicationContext context) {
         super(context);
-        mContext=context;
+        this.reactContext=context;
+        this.reactContext.addActivityEventListener(this);
     }
     
     @Override
@@ -55,9 +56,9 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
             return;
         }
 
-        TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
+        TelecomManager telecomManager = (TelecomManager) this.reactContext.getSystemService(Context.TELECOM_SERVICE);
     
-        if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
+        if (telecomManager.getDefaultDialerPackage() != this.reactContext.getPackageName()) 
             myCallback.invoke(false);
         else
             myCallback.invoke(true);
@@ -81,12 +82,12 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void setDefault(Callback myCallback) {
-        Log.w(LOG, "setDefault "+this.mContext.getPackageName());
+        Log.w(LOG, "setDefault "+this.reactContext.getPackageName());
         setCallback=myCallback;
 
         Intent intent = new Intent(TelecomManager.ACTION_CHANGE_DEFAULT_DIALER);
-        intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.mContext.getPackageName());
-        this.mContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
+        intent.putExtra(TelecomManager.EXTRA_CHANGE_DEFAULT_DIALER_PACKAGE_NAME, this.reactContext.getPackageName());
+        this.reactContext.startActivityForResult(intent, RC_DEFAULT_PHONE,new Bundle());
           
         myCallback.invoke(true);
         // startActivityForResult(intent, REQUEST_CODE_SET_DEFAULT_DIALER); //Different
