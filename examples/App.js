@@ -28,7 +28,7 @@ export default class App extends Component {
     let tReplaceDialer = new ReplaceDialer();
 
     console.log(1);
-    NativeModules.ReplaceDialerModule.isDefault((data) => {
+    NativeModules.ReplaceDialerModule.isDefaultDialer((data) => {
       console.log("data",data);
     });
     console.log(2);

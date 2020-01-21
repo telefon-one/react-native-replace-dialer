@@ -51,7 +51,7 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements
     @ReactMethod
     public void isDefaultDialer(Callback myCallback) {
         Log.w(LOG, "isDefaultDialer()");
-        Log.w(LOG, this.mContext.getPackageName());
+        
 
         if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.M)
         {
@@ -61,11 +61,20 @@ public class ReplaceDialerModule extends ReactContextBaseJavaModule /*implements
 
         TelecomManager telecomManager = (TelecomManager) this.mContext.getSystemService(Context.TELECOM_SERVICE);
     
+        Log.w(LOG, this.mContext.getPackageName());
         Log.w(LOG, telecomManager.getDefaultDialerPackage());
+        
         if (telecomManager.getDefaultDialerPackage() != this.mContext.getPackageName()) 
+        {
+            Log.w(LOG, "invoke(false)");
             myCallback.invoke(false);
+
+        }
         else
+        {
+            Log.w(LOG, "invoke(true)");
             myCallback.invoke(true);
+        }
     }
     
     /*
