@@ -19,27 +19,20 @@ export default class ReplaceDialer {
 
   isDefault() {
     checkModule();
-    return NativeModules.ReplaceDialerModule.isDefault();
-    return new Promise(function (resolve, reject) {
-      NativeModules.ReplaceDialerModule.isDefault((data) => {
-        console.log( data);
-        //if (successful) {
-        // }
-      }
-      )
+    return NativeModules.ReplaceDialerModule.isDefault((data) => {
+      console.log(data);
+      //if (successful) {
+      // }
     });
   }
 
   setDefault() {
     checkModule();
     //return NativeModules.ReplaceDialerModule.setDefault();
-    return new Promise(function (resolve, reject) {
-      NativeModules.ReplaceDialerModule.setDefault(( data) => {
-        console.log( data);
-        //if (successful) {
-        //}
-      }
-      )
+    return NativeModules.ReplaceDialerModule.setDefault((data) => {
+      console.log(data);
+      //if (successful) {
+      //}
     });
   }
 }
