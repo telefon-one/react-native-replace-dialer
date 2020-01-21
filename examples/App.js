@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import {
   SafeAreaView,
@@ -18,7 +18,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import {ReplaceDialer} from 'react-native-replace-dialer';
+import { ReplaceDialer } from 'react-native-replace-dialer';
 
 export default class App extends Component {
   constructor() {
@@ -27,30 +27,20 @@ export default class App extends Component {
   async componentDidMount() {
     let tReplaceDialer = new ReplaceDialer();
 
-    console.log(1);
-    NativeModules.ReplaceDialerModule.isDefaultDialer((data) => {
-      console.log("data",data);
-    });
-    console.log(2);
-
-
-
-    let isDefaultDialer=await tReplaceDialer.isDefaultDialer();
-    
-    if(!isDefaultDialer)
-    {
-      console.log('Is NOT default dialer, try to set.');
-      let setDefaultDialer=await tReplaceDialer.setDefaultDialer();
-      if (setDefaultDialer) {
-        console.log('Default dialer sucessfully set.');
-      } else {
-        console.log('Default dialer NOT set');
+    tReplaceDialer.isDefaultDialer((data) => {
+      if (data)
+        console.log('Is ALREADY default dialer.');
+      else {
+        console.log('Is NOT default dialer, try to set.');
+        tReplaceDialer.setDefaultDialer((data) => {
+          if (data) {
+            console.log('Default dialer sucessfully set.');
+          } else {
+            console.log('Default dialer NOT set');
+          }
+        });
       }
-    } else {
-      console.log('Is ALREADY default dialer, try to set.');
-    }
-    
-
+    });
   }
 
   render() {

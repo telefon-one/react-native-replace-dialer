@@ -17,20 +17,22 @@ export default class ReplaceDialer {
     }
   }
 
-  isDefaultDialer() {
+  isDefaultDialer(cb) {
     this.checkNativeModule();
     return NativeModules.ReplaceDialerModule.isDefaultDialer((data) => {
-      console.log(data);
+      console.log("isDefaultDialer()",data);
+      cb(data);
       //if (successful) {
       // }
     });
   }
 
-  setDefaultDialer() {
+  setDefaultDialer(cb) {
     this.checkNativeModule();
     //return NativeModules.ReplaceDialerModule.setDefault();
     return NativeModules.ReplaceDialerModule.setDefaultDialer((data) => {
-      console.log(data);
+      console.log("setDefaultDialer",data);
+      cb(data);
       //if (successful) {
       //}
     });
